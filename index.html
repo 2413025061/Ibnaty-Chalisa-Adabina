@@ -139,20 +139,6 @@
       color: var(--text);
     }
 
-    @media (max-width: 600px) {
-      .profile {
-        flex-direction: column;
-        text-align: center;
-      }
-      .profile img {
-        margin-bottom: 10px;
-      }
-      .bubble {
-        position: static;
-        margin-bottom: 10px;
-      }
-    }
-
     section {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -189,6 +175,18 @@
       margin-top: 40px;
       text-align: center;
       color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .toggle-btn {
+        position: static;
+        display: block;
+        margin: 10px auto 0;
+      }
+
+      header {
+        padding-bottom: 60px;
+      }
     }
   </style>
 </head>
