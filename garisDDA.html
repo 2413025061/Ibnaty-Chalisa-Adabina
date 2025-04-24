@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritma Garis DDA</title>
+    <style>
+        canvas {
+            border: 3px solid brown;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Algoritma Garis DDA</h1>
+    <h4>Ibnaty Chalisa Adabina - 2413025061</h4>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        function drawBackground() {
+            const ctx = document.getElementById('canvas').getContext('2d');
+            ctx.fillStyle = 'beige';
+            ctx.fillRect(0, 0, 500, 500);
+        }
+
+        function garisDDA(X0, Y0, X1, Y1) {
+            let dx = Math.abs(X1 - X0);
+            let dy = Math.abs(Y1 - Y0);
+
+            let step;
+            if (dx > dy) {
+                step = dx;
+            } else {
+                step = dy;
+            }
+
+            let Xinc = dx / step;
+            let Yinc = dy / step;
+
+            let X = X0;
+            let Y = Y0;
+
+            const ctx = document.getElementById('canvas').getContext('2d'); 
+            ctx.strokeStyle = 'red'; 
+            ctx.beginPath();
+
+            for (let i = 0; i <= step; i++) {
+                ctx.lineTo(Math.round(X), Math.round(Y));
+                X += Xinc;
+                Y += Yinc;
+            }
+            ctx.stroke(); 
+        }
+
+        drawBackground();
+ 
+        const X0 = 50, Y0 = 50;
+        const X1 = 450, Y1 = 450;
+        garisDDA(X0, Y0, X1, Y1);
+    </script>
+</body>
+
+</html>
